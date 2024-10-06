@@ -5,20 +5,20 @@
 class Inspo < Formula
   desc "A tool for exploring layers in a docker image"
   homepage "https://github.com/khulnasoft/inspo/"
-  version "0.0.0-SNAPSHOT-c4ba151"
+  version "0.0.3"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/khulnasoft/inspo/releases/download/v0.0.0/inspo_0.0.0-SNAPSHOT-c4ba151_darwin_arm64.tar.gz"
-      sha256 "5c3688d3b0bf879f30386181c4102fe2bcaf2ade59a2b184235559b6a5d9ea7f"
+    if Hardware::CPU.intel?
+      url "https://github.com/khulnasoft/inspo/releases/download/v0.0.3/inspo_0.0.3_darwin_amd64.tar.gz"
+      sha256 "eb10cbf3f0c882ef96524b12a2d9fc8f64b9bd5aee13178778138b78956b5c59"
 
       def install
         bin.install "inspo"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/khulnasoft/inspo/releases/download/v0.0.0/inspo_0.0.0-SNAPSHOT-c4ba151_darwin_amd64.tar.gz"
-      sha256 "9569427e22efe095f70b2c3c7fd9018529a4354dbe4dc7c6a65ed31163b226a0"
+    if Hardware::CPU.arm?
+      url "https://github.com/khulnasoft/inspo/releases/download/v0.0.3/inspo_0.0.3_darwin_arm64.tar.gz"
+      sha256 "15ccd520feb0ac3e06409f9d92db8583526542e515871c7a25b47c2ccf18d100"
 
       def install
         bin.install "inspo"
@@ -27,17 +27,17 @@ class Inspo < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/khulnasoft/inspo/releases/download/v0.0.0/inspo_0.0.0-SNAPSHOT-c4ba151_linux_amd64.tar.gz"
-      sha256 "405794cdd100898616a5d75f5f4795c3adb3035acfbb9343c7881f94c8488193"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/khulnasoft/inspo/releases/download/v0.0.3/inspo_0.0.3_linux_arm64.tar.gz"
+      sha256 "cf7407399c234386822545cd78eec7e25cef09f101ea437cfc3bb6693936530b"
 
       def install
         bin.install "inspo"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/khulnasoft/inspo/releases/download/v0.0.0/inspo_0.0.0-SNAPSHOT-c4ba151_linux_arm64.tar.gz"
-      sha256 "3f74d5bf706de73c2249179b4c2bb8bd2c7d2c23e7ae5d43e2f0097d31b8e4d9"
+    if Hardware::CPU.intel?
+      url "https://github.com/khulnasoft/inspo/releases/download/v0.0.3/inspo_0.0.3_linux_amd64.tar.gz"
+      sha256 "1e351f683a256f4ed2dc103a7c40ceb5e7870db7739783d12a5e5502d46301c4"
 
       def install
         bin.install "inspo"
